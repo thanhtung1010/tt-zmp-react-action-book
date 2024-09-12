@@ -1,7 +1,7 @@
 import React from "react";
 import { Sheet, Button, Page, Text, useNavigate } from "zmp-ui";
 
-const AboutPage: React.FunctionComponent = (props) => {
+export const AboutPage: React.FunctionComponent = (props) => {
   const [actionSheetOpened, setActionSheetOpened] = React.useState(false);
   const navigate = useNavigate()
   return (
@@ -50,5 +50,3 @@ const AboutPage: React.FunctionComponent = (props) => {
     </Page>
   );
 };
-
-export default AboutPage;

@@ -1,0 +1,10 @@
+&-pagelayout {
+  position: relative;
+  height: 100vh;
+}
+
+&-page {
+  padding: 16px;
+  height: calc(100vh - 50px);
+  overflow: hidden auto;
+}

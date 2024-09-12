@@ -7,7 +7,7 @@ ZMP app created with following options:
 ```
 {
   "cwd": "/Users/tung/Desktop/Project/github/tt-zmp-react-action-book",
-  "name": "tt-zmp-react-action-book",
+  "name": "Sổ Tay Hành Động",
   "framework": "react-typescript",
   "cssPreProcessor": "scss",
   "includeTailwind": true,

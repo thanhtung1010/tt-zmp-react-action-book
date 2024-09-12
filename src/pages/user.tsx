@@ -12,8 +12,8 @@ import {
 import { useRecoilValue } from "recoil";
 import { displayNameState, userState } from "../state";
 
-const UserPage = () => {
-  const { userInfo: user } = useRecoilValue(userState);
+export const UserPage = () => {
+  const userInfo = useRecoilValue(userState);
   const displayName = useRecoilValue(displayNameState);
   const navigate = useNavigate();
   return (
@@ -29,14 +29,14 @@ const UserPage = () => {
             story="default"
             size={96}
             online
-            src={user.avatar.startsWith("http") ? user.avatar : undefined}
+            src={userInfo?.avatar.startsWith("http") ? userInfo?.avatar : undefined}
           >
-            {user.avatar}
+            {userInfo?.avatar}
           </Avatar>
         </Box>
         <Box flex flexDirection="row" alignItems="center" ml={8}>
           <Box>
-            <Text.Title>{displayName || user.name}</Text.Title>
+            <Text.Title>{displayName || userInfo?.name}</Text.Title>
           </Box>
           <Box ml={4}>
             <Button
@@ -52,14 +52,12 @@ const UserPage = () => {
       <Box m={0} p={0} mt={4}>
         <div className="section-container">
           <List>
-            <List.Item title="Name" subTitle={user.name} />
+            <List.Item title="Name" subTitle={userInfo?.name} />
             <List.Item title="Display Name" subTitle={displayName} />
-            <List.Item title="ID" subTitle={user.id} />
+            <List.Item title="ID" subTitle={userInfo?.id} />
           </List>
         </div>
       </Box>
     </Page>
   );
 };
-
-export default UserPage;

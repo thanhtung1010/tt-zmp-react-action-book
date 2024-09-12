@@ -3,15 +3,15 @@ import { List, Page, Icon, useNavigate } from "zmp-ui";
 import { useRecoilValue } from "recoil";
 import { userState } from "../state";
 
-import UserCard from "../components/user-card";
+import { UserCard } from "../components";
 
-const HomePage: React.FunctionComponent = () => {
+export const HomePage: React.FunctionComponent = () => {
   const user = useRecoilValue(userState);
   const navigate = useNavigate();
   return (
     <Page className="page">
       <div className="section-container">
-        <UserCard user={user.userInfo} />
+        <UserCard user={user} />
       </div>
       <div className="section-container">
         <List>
@@ -32,5 +32,3 @@ const HomePage: React.FunctionComponent = () => {
     </Page>
   );
 };
-
-export default HomePage;

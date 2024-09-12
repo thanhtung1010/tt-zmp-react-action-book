@@ -1,5 +1,5 @@
 module.exports = {
-  purge: {
+  content: {
     enabled: true,
     content: ['./src/**/*.{js,jsx,ts,tsx,vue}'],
   },

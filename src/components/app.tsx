@@ -1,29 +1,34 @@
 import React from 'react';
 import { Route} from 'react-router-dom'
-import { App, ZMPRouter, AnimationRoutes, SnackbarProvider } from 'zmp-ui'; 
-import { RecoilRoot } from 'recoil';
-import HomePage from '../pages';
-import About from '../pages/about';
-import Form from '../pages/form';
-import User from '../pages/user';
+import { App, ZMPRouter, AnimationRoutes, SnackbarProvider, useNavigate } from 'zmp-ui'; 
+import { RecoilRoot, useRecoilValue, useSetRecoilState } from 'recoil';
+import { HomePage, AboutPage, UserPage} from '../pages';
+import { userState } from '../state';
+import ZaloPageLayout from './zalo-page-layout';
 
+export const MyApp = () => {
+  // const navigate = useNavigate();
+  // const user = useRecoilValue(userState);
 
-const MyApp = () => {
+  // if (!user) {
+  //   navigate('/error');
+  // }
+
   return (
     <RecoilRoot>
       <App >
       <SnackbarProvider>
         <ZMPRouter>
-          <AnimationRoutes>
-            <Route path="/" element={<HomePage></HomePage>}></Route>
-            <Route path="/about" element={<About></About>}></Route>
-          <Route path="/form" element={<Form></Form>}></Route>
-          <Route path="/user" element={<User></User>}></Route>
-          </AnimationRoutes>
+          <ZaloPageLayout>
+            <AnimationRoutes>
+              <Route path="/" element={<HomePage></HomePage>}></Route>
+              <Route path="/setting" element={<AboutPage></AboutPage>}></Route>
+              <Route path="/customer" element={<UserPage></UserPage>}></Route>
+            </AnimationRoutes>
+          </ZaloPageLayout>
         </ZMPRouter>
       </SnackbarProvider>
       </App>
     </RecoilRoot>
   );
-}
-export default MyApp;
+};
